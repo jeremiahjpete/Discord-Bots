@@ -97,9 +97,9 @@ async def play(ctx, url: str):
         return
     
     voiceChannel = discord.utils.get(ctx.guild.voice_channels, name='Video Audio')
-    await voiceChannel.connect(reconnect=True)
+    await voiceChannel.connect()
     voice = discord.utils.get(bot.voice_clients, guild=ctx.guild)
-    
+    print(str(voice.is_connected()))
     # use the ytdl formatting/ffmpeg tool as a basis in order to convert video to audio bot can play 
     ytdl_opts = {
         'format': 'bestaudio/best',
@@ -119,8 +119,9 @@ async def play(ctx, url: str):
         if file.endswith(".mp3"):
             os.rename(file, "video.mp3")
 
-    await ctx.send("Audio done downloading! Playing in voice channel now!")
+    print(str(voice.is_connected()))
     voice.play(discord.FFmpegPCMAudio("video.mp3"))
+    await ctx.send("Audio done downloading! Playing in voice channel now!")
     print("Playing Audio...")
 
 # command to resume the audio being played in channel
