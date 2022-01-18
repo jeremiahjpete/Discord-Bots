@@ -120,5 +120,5 @@ async def on_message(message):
 #keep_bot_alive()
 # retrieve token from .env file
 load_dotenv()
-token = os.getenv("discordBotToken")
+token = os.getenv("dailyWisdomBotToken")
 client.run(token)

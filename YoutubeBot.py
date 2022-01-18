@@ -56,7 +56,7 @@ async def on_message(messageVal):
     
     message = messageVal.content
 
-    # create a response to being told #hello
+    # create a response to being told !hello
     if message.startswith('!hello'):
         await messageVal.channel.send('Hello! I am YoutubeBot! I am here to handle your Youtube needs!!!\n'
         'I perform the following functions:\n\n'
