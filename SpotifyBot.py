@@ -6,7 +6,6 @@ REQUIRED: pip install spotipy
 
 import os
 import spotipy
-import pandas as pd
 from dotenv import load_dotenv
 from discord.ext import commands
 from spotipy.oauth2 import SpotifyClientCredentials
